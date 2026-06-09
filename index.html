@@ -421,7 +421,7 @@
             btn.classList.toggle('active', alertsEnabled);
             
             if (alertsEnabled) {
-                showToast("Smart Alerts", "Мониторинг аномальной волатильности (≥10%) запущен", "info");
+                showToast("Smart Alerts", "Мониторинг аномальной волатильности (≥5%) запущен", "info");
                 if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
             } else {
                 showToast("Smart Alerts", "Мониторинг полностью деактивирован", "info");
@@ -479,7 +479,7 @@
         }
 
         function checkAndFireAlert(symbol, price, changePct) {
-            if (Math.abs(changePct) < 10.0) return;
+            if (Math.abs(changePct) < 5.0) return;
 
             const alertKey = `alerted_${symbol}`;
             const lastAlertTime = sessionStorage.getItem(alertKey);
